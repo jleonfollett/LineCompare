@@ -23,21 +23,11 @@ public class ReadLine {
 
 	public ReadLine() throws IOException, ParseException{
 		// Opens File and BufferedReader
-		System.out.println("Please provide first file to be read");
+		System.out.println("Please provide file to be read");
 		fr = new FileReader(scanner.nextLine());
-		System.out.println("Please provide second file to be read");
-		fr2 = new FileReader(scanner.nextLine());
 		br = new BufferedReader(fr);
-		br2 = new BufferedReader(fr2);
-		String line = null;
-		String line2 = null;
-		for(int i = 0; i <= 2; i++){
-			line = br.readLine();
-			line2 = br2.readLine();
-			if(i == 2){
-				break;
-			}
-		}
+		String line = br.readLine();
+		String line2 = br.readLine();
 		checkEmpty(line, line2);
 		}
 	
@@ -52,12 +42,12 @@ public class ReadLine {
 	private void checkEmpty(String line, String line2){
 		if(line == null || line2 == null){
 			if(line == null){
-				System.out.println("The third line from file 1 is empty!");
+				System.out.println("The first line is empty!");
 			} else {
 				populateList(line, line1List);
 			}
 			if(line2 == null){
-				System.out.println("The third line from file 2 is empty!");
+				System.out.println("The second line is empty!");
 			} else {
 				populateList(line2, line2List);
 			}
